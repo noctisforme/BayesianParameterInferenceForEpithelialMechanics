@@ -55,7 +55,7 @@ if len(input_args) != 1:
     print(tissue)
 else:
     tissue = "Sample"
-    stage = "sample"
+    stage = "w165-"
     model_name = "A"
     condition = "20240424"
     out = "./output/{}/{}".format(tissue,stage)
