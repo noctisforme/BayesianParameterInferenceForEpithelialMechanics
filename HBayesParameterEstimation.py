@@ -1,48 +1,21 @@
  # -*- coding: utf-8 -*-
 """
-Created on Wed Nov 25 18:23:47 2020
 
-@author: Goshi
 """
 
 #%% import modules
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
 import pandas as pd
-from pandas import Series, DataFrame
-import statsmodels.api as sm
+from pandas import DataFrame
 import sys
 import os
-import copy 
-import statsmodels.robust as robust 
 import glob
-import tkinter, tkinter.filedialog, tkinter.messagebox
 
-import arviz as az
-import matplotlib.pyplot as plt
-import numpy as np
-import pandas as pd
 import pymc3 as pm
-import theano
-import xarray as xr
-
-
-import MyPyLib.ForceInf_lib 
-import MyPyLib.OgitaInf_NL as NOgi
-import MyPyLib.GetMatrixParameterEstimation as GPE
-import MyPyLib.ScaleConverter as SC
-import MyPyLib.Outlier as Outlier
-import MyPyLib.Multico as Multico
-import MyPyLib.EB as EB
-import MyPyLib.HalfVonMises_pymc3 as HM
 import MyPyLib.HBayesInf as HI
-#mpl.rcParams["text.usetex"] = True
-
-
-
 
 #%% select input
+
 input_args = sys.argv
 if len(input_args) != 1:
     tissue = input_args[1]
@@ -54,23 +27,21 @@ if len(input_args) != 1:
     plot = False
     print(tissue)
 else:
-    tissue = "Sample"
+    tissue = "Samples"
     stage = "w165-"
     model_name = "A"
     condition = "20240424"
-    out = "./output/{}/{}".format(tissue,stage)
-    fileout = "./output/{}/{}/{}/".format(tissue,stage,model_name)
+    out = "./output/{}/HBayes".format(stage)
+    fileout = "./output/{}/HBayes/{}/".format(stage,model_name)
     plot = True
 
 if not os.path.exists(fileout):
     os.makedirs(fileout)
 
-sample_directory = "./"
-tissue_directory = "{}{}/".format(sample_directory,tissue)
-stage_directory = "{}{}/{}/".format(sample_directory,tissue,stage)
+sample_directory = "./Samples/"
+stage_directory = "{}{}/".format(sample_directory,stage)
 sample_list = glob.glob(stage_directory+"*/*/VDat*.dat")
 sample_list = [i.replace("\\","/") for i in sample_list]
-
 
 #%% Setting on estimation
 ExcludeOutlier = True
@@ -78,14 +49,13 @@ ExcludeShortEdge = True
 AreaNormalization = True
 Artifitial = False
 
-
 #%% Calculate matrix FF
 FF_ALL = DataFrame()
 FFlowNum = []
 for sample in sample_list:
     data = sample.split("/")[-3].replace("VDat_","").replace(".dat","")    
     print(data)
-    hosei = -HI.kakudohosei(tissue_directory,data)
+    hosei = -HI.kakudohosei(sample_directory,data)
     print(hosei)
     if hosei!=np.nan:
         FF = HI.CalcFF(sample,AreaNormalization,ExcludeShortEdge,ExcludeOutlier,Artifitial,hosei)
@@ -119,7 +89,7 @@ if not os.path.exists("{}/{}_{}_statistics.csv".format(out,condition,stage)):
     empty_stats = pd.DataFrame(columns=stats_names)
     empty_stats.to_csv("{}/{}_{}_statistics.csv".format(out,condition,stage), header = True)
     
-HI.statsave(trace,out,stage,model_name,summary,loo,waic,condition)
+HI.statsave(trace,out,stage,model_name,summary,condition)
 
 
 
