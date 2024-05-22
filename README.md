@@ -22,4 +22,4 @@ The detailed readme will be updated soon.
 
 1. Prepare input files from the same developmental stage in the same format as the attached sample (./Samples/*/, where * is the stage name).
 2. Change the variable "filename" in BayesParameterEstimation.py to the input file from ./Samples/*/ in step 1, or the variable "stage" in HBayesParameterEstimation.py to the stage name *.
-Run BayesianParameterEstimation.py or HBayesianParameterEstimation.py on IDE or IPython.
+3. Run BayesianParameterEstimation.py or HBayesianParameterEstimation.py on IDE or IPython.
