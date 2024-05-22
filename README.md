@@ -9,7 +9,11 @@ The detailed readme will be updated soon.
 ## Requirement
 
 pymc3==3.11.4
+
 arviz==0.14.0
+
 scipy==1.9.3
+
 sparseqr==1.2.1
+
 theano==1.1.2
