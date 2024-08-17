@@ -24,11 +24,6 @@ The detailed readme will be updated soon.
 2. Change the variable "filename" in BayesParameterEstimation.py to the input file from ./Samples/*/ in step 1, or the variable "stage" in HBayesParameterEstimation.py to the stage name *.
 3. Run BayesianParameterEstimation.py or HBayesianParameterEstimation.py on IDE or IPython.
 
-
-## Licence
-
-[MIT](https://github.com/tcnksm/tool/blob/master/LICENCE)
-
 ## Reference
 1. Yan, Goshi Ogita#, Shuji Ishihara, and Kaoru Sugimura (2024)<br>
 "Bayesian parameter inference for epithelial mechanics."<br>
