@@ -3,8 +3,8 @@ Bayesian paramter inference for epithelial mechanics
 
 ## Description
 
-This is a script for Bayesian parameter inference for epithelial mechanics, reported in Yan and Ogita et al. 2024 [1]. 
-The detailed readme will be updated soon.
+Here are scripts for Bayesian parameter inference for epithelial mechanics, reported in Yan and Ogita et al. 2024 [1]. 
+Using a input file that contains the information about detected vertices, edges, cells, and coordinates of cell vertices from an image of epithelial tissue, one can use the scripts to perform non-hierarchical Bayesian parameter inference with "BayesParameterEstimation.py", or hierarchical Bayesian parameter inference with "HBayesParameterEstimation.py". The input file can be derived using the GetVertex plugin in ImageJ/Fiji; for details, see https://github.com/Sugimuralab/GetVertexPlugin.
 
 ## Requirement
 
@@ -20,11 +20,11 @@ The detailed readme will be updated soon.
 
 ## Usage
 
-1. Prepare input files from the same developmental stage in the same format as the attached sample (./Samples/*/, where * is the stage name).
-2. Change the variable "filename" in BayesParameterEstimation.py to the input file from ./Samples/*/ in step 1, or the variable "stage" in HBayesParameterEstimation.py to the stage name *.
-3. Run BayesianParameterEstimation.py or HBayesianParameterEstimation.py on IDE or IPython.
+1. Prepare input files from the same developmental stage in the same format as the attached sample folder (./Samples/*/, where * is the stage name).
+2. Change the variable "filename" in BayesParameterEstimation.py to the input file from ./Samples/*/ in step 1, or the variable stage in HBayesParameterEstimation.py to the stage name *.
+4. Run "BayesianParameterEstimation.py" or "HBayesianParameterEstimation.py" on IDE or IPython.
 
 ## Reference
 1. Yan, Goshi Ogita#, Shuji Ishihara, and Kaoru Sugimura (2024)<br>
 "Bayesian parameter inference for epithelial mechanics."<br>
-bioRxiv [[https://doi.org/10.1371/journal.pcbi.1010209](https://www.biorxiv.org/content/10.1101/2024.04.24.590933v2)]
+Journal of Theoretical Biology [[https://www.sciencedirect.com/science/article/pii/S0022519324002455](https://www.sciencedirect.com/science/article/pii/S0022519324002455)]
