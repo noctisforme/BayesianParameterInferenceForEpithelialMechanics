@@ -26,5 +26,5 @@ Using a input file that contains the information about detected vertices, edges,
 4. Run "BayesianParameterEstimation.py" or "HBayesianParameterEstimation.py" on IDE or IPython.
 
 ## Reference
-1. Yan, Goshi Ogita#, Shuji Ishihara, and Kaoru Sugimura (2024)<br>
+1. Xin Yan, Goshi Ogita#, Shuji Ishihara, and Kaoru Sugimura# (2024)<br>
 "Bayesian parameter inference for epithelial mechanics."<br> Journal of Theoretical Biology [[https://www.sciencedirect.com/science/article/pii/S0022519324002455](https://www.sciencedirect.com/science/article/pii/S0022519324002455)]
